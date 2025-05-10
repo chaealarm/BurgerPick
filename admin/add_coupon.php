@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':name' => $coupon_name,
             ':code' => $coupon_code
         ]);
-        $success = "쿠퓰가 성공적으로 등록되었습니다.";
+        $success = "쿠폰이 성공적으로 등록되었습니다.";
     } else {
         $error = "모든 필드를 참가해주세요.";
     }
@@ -45,12 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <form method="POST">
             <label class="block mb-4">
-                <span class="text-gray-700">쿠퓰 이름</span>
+                <span class="text-gray-700">쿠폰 이름</span>
                 <input type="text" name="coupon_name" required class="mt-1 block w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
             </label>
 
             <label class="block mb-6">
-                <span class="text-gray-700">쿠퓰 번호</span>
+                <span class="text-gray-700">쿠폰 번호</span>
                 <input type="text" name="coupon_code" required class="mt-1 block w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
             </label>
 
