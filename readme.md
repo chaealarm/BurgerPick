@@ -110,3 +110,7 @@ http://localhost/burgerpick/index.php?token=1_f4e2a7c1
 ## 📄 라이선스
 
 MIT License
+
+## 기타
+
+ChatGPT를 이용하여 생성한 코드
