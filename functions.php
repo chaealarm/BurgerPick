@@ -1,5 +1,5 @@
 <?php
-define('ENCRYPTION_KEY', 'HelloMan');
+define('ENCRYPTION_KEY', 'YOURSECRETKEY');
 define('ENCRYPTION_IV', substr(hash('sha256', ENCRYPTION_KEY), 0, 16)); // 정확히 16바이트로 추출
 
 function aes_encrypt($data) {
