@@ -30,17 +30,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>관리자 - 쿠퓰 등록</title>
+    <title>관리자 - 쿠폰 등록</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 min-h-screen py-12">
     <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
-        <h2 class="text-2xl font-bold mb-6 text-center">쿠퓰 등록</h2>
+        <h2 class="text-2xl font-bold mb-6 text-center">쿠폰 등록</h2>
 
-        <?php if (!empty(\$success)): ?>
-            <p class="text-green-500 text-sm mb-4"><?php echo \$success; ?></p>
-        <?php elseif (!empty(\$error)): ?>
-            <p class="text-red-500 text-sm mb-4"><?php echo \$error; ?></p>
+        <?php if (!empty($success)): ?>
+            <p class="text-green-500 text-sm mb-4"><?php echo $success; ?></p>
+        <?php elseif (!empty($error)): ?>
+            <p class="text-red-500 text-sm mb-4"><?php echo $error; ?></p>
         <?php endif; ?>
 
         <form method="POST">
