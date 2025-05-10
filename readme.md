@@ -28,7 +28,7 @@
 ### 1. 프로젝트 복제 및 이동
 
 ```bash
-git clone https://github.com/yourname/burgerpick.git
+git clone https://github.com/chaealarm/BurgerPick.git
 cd burgerpick
 ```
 
@@ -46,18 +46,12 @@ mysql -u root -p < schema.sql
 
 > 데이터베이스 이름: `burger_coupon`
 
-### 4. Apache 설정 (선택)
 
-```
-DocumentRoot "C:/xampp/htdocs/burgerpick"
-```
-
----
-
-## 🔑 관리자 로그인 정보
+## 🔑  기본 관리자 페이지 로그인 정보
 
 * ID: `Kimchi`
 * PW: `Danmuji`
+* admin/login.php 를 수정하여 ID/PW 변경 가능
 
 ---
 
