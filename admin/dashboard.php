@@ -9,11 +9,14 @@ if (!isset($_SESSION['admin_logged_in'])) {
     exit();
 }
 
-// 쿠폰 요청 목록 (claims + coupons)
+function getBaseUrl() {
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    return $protocol . $_SERVER['HTTP_HOST'];
+}
+
 $stmt = $pdo->query("SELECT claims.*, coupons.name AS coupon_name FROM claims JOIN coupons ON claims.coupon_id = coupons.id ORDER BY claims.created_at DESC");
 $claims = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// 쿠폰 목록
 $couponStmt = $pdo->query("SELECT * FROM coupons ORDER BY created_at DESC");
 $coupons = $couponStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -32,7 +35,6 @@ $coupons = $couponStmt->fetchAll(PDO::FETCH_ASSOC);
             <a href="logout.php" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">로그아웃</a>
         </div>
 
-        <!-- 쿠폰 목록 및 수정/삭제 -->
         <div class="bg-white rounded shadow p-6">
             <h2 class="text-xl font-semibold mb-4">쿠폰 관리</h2>
             <form method="POST" action="save_coupon.php" class="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -57,7 +59,10 @@ $coupons = $couponStmt->fetchAll(PDO::FETCH_ASSOC);
                         <td class="py-2 px-4"><?php echo htmlspecialchars($c['name']); ?></td>
                         <td class="py-2 px-4 font-mono"><?php echo htmlspecialchars($c['code']); ?></td>
                         <td class="py-2 px-4 text-blue-600 underline">
-                            <?php echo 'http://localhost/burgerpick/index.php?token=' . htmlspecialchars($c['id'] . '_' . substr(md5($c['code']), 0, 8)); ?>
+                            <?php
+                                $token = $c['id'] . '_' . substr(md5($c['code']), 0, 8);
+                                echo getBaseUrl() . "/burgerpick/index.php?token=" . $token;
+                            ?>
                         </td>
                         <td class="py-2 px-4">
                             <img src="../barcode.php?code=<?php echo urlencode($c['code']); ?>" alt="barcode" class="h-8">
@@ -74,7 +79,6 @@ $coupons = $couponStmt->fetchAll(PDO::FETCH_ASSOC);
             </table>
         </div>
 
-        <!-- 요청 리스트 -->
         <div class="bg-white rounded shadow p-6">
             <h2 class="text-xl font-semibold mb-4">쿠폰 요청 목록</h2>
             <table class="min-w-full">
