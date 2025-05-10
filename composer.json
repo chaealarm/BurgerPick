@@ -1,5 +1,5 @@
 {
-    "require": {
-        "picqer/php-barcode-generator": "^2.0",
-    }
+  "require": {
+    "picqer/php-barcode-generator": "^2.0"
+  }
 }
