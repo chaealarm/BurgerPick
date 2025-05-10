@@ -80,6 +80,8 @@ burgerpick/
 * 모든 DB 쿼리는 **Prepared Statement**로 SQL Injection 방지
 * 비밀번호는 AES-256-CBC 방식으로 암호화되어 저장됨
 * 쿠폰 접근은 **token 기반 링크**와 **비밀번호 입력**으로 이중 보호됨
+* db.php는 해당 db에 맞게 데이터베이스 및 ID/Pass 설정 필요함
+* functions.php, admin/login.php 는 Key 값, 패스워드 변경 필요
 
 ---
 
